@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ project.title }}</h2>
+  <p>{{ project.description }}</p>
+
+  {% if project.file %}
+    <div class="file-section">
+      <h3>Attached File:</h3>
+      <a href="{{ project.file.url }}" download>Download File</a>
+    </div>
+  {% endif %}
+
+  <a href="{% url 'project_edit' project.pk %}">Back to Edit</a>
+{% endblock %}

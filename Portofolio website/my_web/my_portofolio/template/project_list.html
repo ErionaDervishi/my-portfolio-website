@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Project List</h2>
+  <ul>
+    {% for project in projects %}
+      <li>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        {% if project.file %}
+          <a href="{{ project.file.url }}" target="_blank">View File</a>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No projects available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

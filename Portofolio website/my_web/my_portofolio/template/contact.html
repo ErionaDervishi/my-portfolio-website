@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Contact Information</h2>
+
+  <!-- Formulati për të shtuar ose përditësuar informacionin -->
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+
+  <!-- Shfaq informacionin aktual të kontaktit -->
+  {% if contact_info %}
+    <h3>Current Contact Information:</h3>
+    <p>Email: {{ contact_info.email }}</p>
+    
+    <!-- Shtoni më shumë fushë nëse ka -->
+  {% endif %}
+{% endblock %}
